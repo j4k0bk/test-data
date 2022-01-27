@@ -11,7 +11,7 @@ meteringpoints = []
 with open('dummy_solar_production.csv', newline='') as f1:
     for gsrn in set(row['id'] for row in csv.DictReader(f1)):
         meteringpoints.append({
-            'gsrn': f'test-{gsrn}',
+            'gsrn': f'X-test-{gsrn}',
             'sector': 'DK1',
             'type': 'production',
             'postcode': '8000',
@@ -22,7 +22,7 @@ with open('dummy_solar_production.csv', newline='') as f1:
 with open('dummy_consumption.csv', newline='') as f2:
     for gsrn in set(row['id'] for row in csv.DictReader(f2)):
         meteringpoints.append({
-            'gsrn': f'test-{gsrn}',
+            'gsrn': f'X-test-{gsrn}',
             'sector': 'DK1',
             'type': 'consumption',
             'postcode': '8000',
@@ -71,7 +71,7 @@ with open('measurements.csv', 'w', newline='') as f3:
             end = begin + timedelta(hours=1)
 
             writer.writerow({
-                'gsrn': f'test-{row["id"]}',
+                'gsrn': f'X-test-{row["id"]}',
                 'begin': str(begin),
                 'end': str(end),
                 'amount': int(float(row['production']) * 1000),
@@ -86,7 +86,7 @@ with open('measurements.csv', 'w', newline='') as f3:
             end = begin + timedelta(hours=1)
 
             writer.writerow({
-                'gsrn': f'test-{row["id"]}',
+                'gsrn': f'X-test-{row["id"]}',
                 'begin': str(begin),
                 'end': str(end),
                 'amount': int(float(row['consumption']) * 1000),
